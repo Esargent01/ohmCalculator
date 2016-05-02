@@ -1,0 +1,51 @@
+<html ng-app="calculator">
+<head>
+	<title>Ohm Calculator</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-controller="calcCtrl">
+<h1>4 Band Ohm Calculator</h1>
+
+<div class="infoHeader">
+<h2 clas="infoHeading">Select the Value of Each Band:</h2>
+<div class="infoHeading outputBox">{{ohms() | number}} Ohms &plusmn;{{bandData.tolerance}}</div>
+</div>
+
+<div class="bandOptions">
+	<div class="bandColors">
+		<h3 class="bandHeading">Band Color</h3>
+		<ul ng-repeat="color in colorBands.color">
+			<li class="colorSelector" ng-repeat="details in color.band" style="background-color: {{details.background}};">{{details.name}}</li>
+		</ul>
+	</div>
+	<div class="bandColors">
+		<h3 class="bandHeading">Band A: Significant Figure #1</h3>
+		<ul ng-repeat="color in colorBands.color">
+			<li class="colorSelector" ng-repeat="details in color.band"><label><input type="radio" name="Band1" value="{{details.sigFig}}" ng-model="bandData.sigFig">{{details.sigFig}}</label></li>
+		</ul>
+	</div>
+	<div class="bandColors">
+		<h3 class="bandHeading">Band B: Significant Figure #2</h3>
+		<ul ng-repeat="color in colorBands.color">
+			<li class="colorSelector" ng-repeat="details in color.band"><label><input type="radio" name="Band2" value="{{details.sigFig2}}" ng-model="bandData.sigFig2">{{details.sigFig2}}</label></li>
+		</ul>
+	</div>
+	<div class="bandColors">
+		<h3 class="bandHeading">Band C: Multiplier</h3>
+		<ul ng-repeat="color in colorBands.color">
+			<li class="colorSelector" ng-repeat="details in color.band"><label><input type="radio" name="Band3" value="{{details.multiplier}}" ng-model="bandData.multiplier">{{details.multiplier}}</label></li>
+		</ul>
+	</div>
+	<div class="bandColors">
+		<h3 class="bandHeading">Band D: Tolerance %</h3>
+		<ul ng-repeat="color in colorBands.color">
+			<li class="colorSelector" ng-repeat="details in color.band"><label><input type="radio" name="Band4" value="{{details.tolerance}}" ng-model="bandData.tolerance">{{details.tolerance}}</label></li>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/calculate.js"></script>
+</body>
+</html>
