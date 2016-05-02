@@ -1,4 +1,4 @@
-describe(‘ohm Calculator ’, function() {
+describe('ohm Calculator', function() {
 
 beforeEach(module(app));
 
