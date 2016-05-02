@@ -1,0 +1,1 @@
+This is am Ohm Value calculator. Pretty simple.
